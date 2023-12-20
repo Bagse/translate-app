@@ -7,36 +7,40 @@ const LanguageBlock = ({
   inputText,
   setInputText,
 }) => {
+  const handleTranslateClick = () => {
+    translateText(sourceLanguage, targetLanguage, inputText);
+  };
+
   return (
     <div className="bg-[#212936] rounded-3xl border border-[#4D5562] p-6 w-[560px] opacity-80">
       <div className="flex gap-6 px-3 text-white/40 font-semibold">
         <button
           className={`${
-            sourceLanguage === "en"
-              ? "text-white p-2 rounded-xl"
-              : "hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl"
+            sourceLanguage === 'en'
+              ? 'text-white p-2 rounded-xl'
+              : 'hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl'
           }`}
-          onClick={() => handleSourceLanguageChange("en")}
+          onClick={() => handleSourceLanguageChange('en')}
         >
           Detect Language
         </button>
         <button
           className={`${
-            sourceLanguage === "en"
-              ? "bg-[#4D5562] text-white p-2 rounded-xl"
-              : "hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl"
+            sourceLanguage === 'en'
+              ? 'bg-[#4D5562] text-white p-2 rounded-xl'
+              : 'hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl'
           }`}
-          onClick={() => handleSourceLanguageChange("en")}
+          onClick={() => handleSourceLanguageChange('en')}
         >
           English
         </button>
         <button
           className={`${
-            sourceLanguage === "fr"
-              ? "bg-[#4D5562] text-white p-2 rounded-xl"
-              : "hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl"
+            sourceLanguage === 'fr'
+              ? 'bg-[#4D5562] text-white p-2 rounded-xl'
+              : 'hover:bg-[#4D5562] hover:text-white hover:p-2 hover:rounded-xl'
           }`}
-          onClick={() => handleSourceLanguageChange("fr")}
+          onClick={() => handleSourceLanguageChange('fr')}
         >
           French
         </button>
@@ -60,9 +64,7 @@ const LanguageBlock = ({
         className="bg-[#212936] text-white font-medium w-full resize-none  outline-none"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
-      >
-        Hello, how are you?
-      </textarea>
+      />
 
       <div className="flex justify-between">
         <div className="flex gap-3">
@@ -74,7 +76,7 @@ const LanguageBlock = ({
         </div>
         <button
           className="flex items-center bg-[#3662E3] text-white rounded-xl px-6 py-2 border border-[#7CA9F3] text-lg hover:bg-[#3662E3]/70 gap-2"
-          onClick={translateText}
+          onClick={handleTranslateClick}
         >
           <img src="./img/Sort_alfa.svg" alt="icon sort alfa" />
           Translate
